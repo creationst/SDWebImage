@@ -191,6 +191,12 @@
 		A18A6CCE172DC33A00419892 /* NSData+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = A18A6CCB172DC33A00419892 /* NSData+GIF.h */; };
 		A18A6CCF172DC33A00419892 /* NSData+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A18A6CCC172DC33A00419892 /* NSData+GIF.m */; };
 		A18A6CD0172DC33A00419892 /* NSData+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A18A6CCC172DC33A00419892 /* NSData+GIF.m */; };
+		A560135317F979B9003688E7 /* UIImage+BGColorCalculation.h in Headers */ = {isa = PBXBuildFile; fileRef = A560134D17F979B9003688E7 /* UIImage+BGColorCalculation.h */; };
+		A560135417F979B9003688E7 /* UIImage+BGColorCalculation.m in Sources */ = {isa = PBXBuildFile; fileRef = A560134E17F979B9003688E7 /* UIImage+BGColorCalculation.m */; };
+		A560135517F979B9003688E7 /* UIImageView+MPMediaImageLoad.h in Headers */ = {isa = PBXBuildFile; fileRef = A560134F17F979B9003688E7 /* UIImageView+MPMediaImageLoad.h */; };
+		A560135617F979B9003688E7 /* UIImageView+MPMediaImageLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = A560135017F979B9003688E7 /* UIImageView+MPMediaImageLoad.m */; };
+		A560135717F979B9003688E7 /* UIImageView+Transition.h in Headers */ = {isa = PBXBuildFile; fileRef = A560135117F979B9003688E7 /* UIImageView+Transition.h */; };
+		A560135817F979B9003688E7 /* UIImageView+Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = A560135217F979B9003688E7 /* UIImageView+Transition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,6 +285,12 @@
 		A18A6CC6172DC28500419892 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
 		A18A6CCB172DC33A00419892 /* NSData+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GIF.h"; sourceTree = "<group>"; };
 		A18A6CCC172DC33A00419892 /* NSData+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GIF.m"; sourceTree = "<group>"; };
+		A560134D17F979B9003688E7 /* UIImage+BGColorCalculation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BGColorCalculation.h"; sourceTree = "<group>"; };
+		A560134E17F979B9003688E7 /* UIImage+BGColorCalculation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BGColorCalculation.m"; sourceTree = "<group>"; };
+		A560134F17F979B9003688E7 /* UIImageView+MPMediaImageLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+MPMediaImageLoad.h"; sourceTree = "<group>"; };
+		A560135017F979B9003688E7 /* UIImageView+MPMediaImageLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MPMediaImageLoad.m"; sourceTree = "<group>"; };
+		A560135117F979B9003688E7 /* UIImageView+Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Transition.h"; sourceTree = "<group>"; };
+		A560135217F979B9003688E7 /* UIImageView+Transition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Transition.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +375,12 @@
 		53922DA9148C562D0056699D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A560134D17F979B9003688E7 /* UIImage+BGColorCalculation.h */,
+				A560134E17F979B9003688E7 /* UIImage+BGColorCalculation.m */,
+				A560134F17F979B9003688E7 /* UIImageView+MPMediaImageLoad.h */,
+				A560135017F979B9003688E7 /* UIImageView+MPMediaImageLoad.m */,
+				A560135117F979B9003688E7 /* UIImageView+Transition.h */,
+				A560135217F979B9003688E7 /* UIImageView+Transition.m */,
 				53EDFB8817623F7C00698166 /* UIImage+MultiFormat.h */,
 				53EDFB8917623F7C00698166 /* UIImage+MultiFormat.m */,
 				A18A6CCB172DC33A00419892 /* NSData+GIF.h */,
@@ -529,8 +547,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A560135717F979B9003688E7 /* UIImageView+Transition.h in Headers */,
 				53761316155AD0D5005750A4 /* SDImageCache.h in Headers */,
 				53761318155AD0D5005750A4 /* SDWebImageCompat.h in Headers */,
+				A560135517F979B9003688E7 /* UIImageView+MPMediaImageLoad.h in Headers */,
 				53761319155AD0D5005750A4 /* SDWebImageDecoder.h in Headers */,
 				5376131A155AD0D5005750A4 /* SDWebImageDownloader.h in Headers */,
 				5376131C155AD0D5005750A4 /* SDWebImageManager.h in Headers */,
@@ -542,6 +562,7 @@
 				A18A6CC7172DC28500419892 /* UIImage+GIF.h in Headers */,
 				A18A6CCD172DC33A00419892 /* NSData+GIF.h in Headers */,
 				53EDFB8A17623F7C00698166 /* UIImage+MultiFormat.h in Headers */,
+				A560135317F979B9003688E7 /* UIImage+BGColorCalculation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,9 +784,12 @@
 			files = (
 				53761309155AD0D5005750A4 /* SDImageCache.m in Sources */,
 				5376130A155AD0D5005750A4 /* SDWebImageDecoder.m in Sources */,
+				A560135817F979B9003688E7 /* UIImageView+Transition.m in Sources */,
+				A560135617F979B9003688E7 /* UIImageView+MPMediaImageLoad.m in Sources */,
 				5376130B155AD0D5005750A4 /* SDWebImageDownloader.m in Sources */,
 				5376130C155AD0D5005750A4 /* SDWebImageManager.m in Sources */,
 				5376130D155AD0D5005750A4 /* SDWebImagePrefetcher.m in Sources */,
+				A560135417F979B9003688E7 /* UIImage+BGColorCalculation.m in Sources */,
 				5376130E155AD0D5005750A4 /* UIButton+WebCache.m in Sources */,
 				5376130F155AD0D5005750A4 /* UIImageView+WebCache.m in Sources */,
 				530E49EC16464C84002868E7 /* SDWebImageDownloaderOperation.m in Sources */,
