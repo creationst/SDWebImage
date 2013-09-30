@@ -40,7 +40,18 @@ typedef enum
      *
      * Use this flag only if you can't make your URLs static with embeded cache busting parameter.
      */
-    SDWebImageRefreshCached = 1 << 4
+    SDWebImageRefreshCached = 1 << 4,
+    
+    /**
+     * This flag is used to make the UIimageView calculate the background color for the image and apply it before setting the image.
+     */
+    SDWebImageSetComplementaryBGColor =1 << 5,
+    
+    /**
+     * This flag is used to set the new image with a animation.
+     */
+    SDWebImageSetImageWithAnimation =1 << 6
+    
 } SDWebImageOptions;
 
 typedef void(^SDWebImageCompletedBlock)(UIImage *image, NSError *error, SDImageCacheType cacheType);

@@ -8,6 +8,8 @@
 
 #import "UIImageView+WebCache.h"
 #import "objc/runtime.h"
+#import "UIImage+BGColorCalculation.h"
+#import "UIImageView+Transition.h"
 
 static char operationKey;
 static char operationArrayKey;
@@ -44,36 +46,112 @@ static char operationArrayKey;
     [self setImageWithURL:url placeholderImage:placeholder options:options progress:nil completed:completedBlock];
 }
 
+//- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options progress:(SDWebImageDownloaderProgressBlock)progressBlock completed:(SDWebImageCompletedBlock)completedBlock
+//{
+//    [self cancelCurrentImageLoad];
+//    
+//    if(placeholder != nil)
+//        self.image = placeholder;
+//    
+//    if (url)
+//    {
+//        __weak UIImageView *wself = self;
+//        id<SDWebImageOperation> operation = [SDWebImageManager.sharedManager downloadWithURL:url options:options progress:progressBlock completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished)
+//        {
+//            if (!wself) return;
+//            dispatch_main_sync_safe(^
+//            {
+//                __strong UIImageView *sself = wself;
+//                if (!sself) return;
+//                if (image)
+//                {
+//                    sself.image = image;
+//                    [sself setNeedsLayout];
+//                }
+//                if (completedBlock && finished)
+//                {
+//                    completedBlock(image, error, cacheType);
+//                }
+//            });
+//        }];
+//        objc_setAssociatedObject(self, &operationKey, operation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//    }
+//}
+
+//old
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options progress:(SDWebImageDownloaderProgressBlock)progressBlock completed:(SDWebImageCompletedBlock)completedBlock
 {
     [self cancelCurrentImageLoad];
-
-    self.image = placeholder;
+    
+    if(placeholder != nil)
+        self.image = placeholder;
     
     if (url)
     {
         __weak UIImageView *wself = self;
         id<SDWebImageOperation> operation = [SDWebImageManager.sharedManager downloadWithURL:url options:options progress:progressBlock completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished)
         {
-            if (!wself) return;
-            dispatch_main_sync_safe(^
+            if (image)
             {
                 __strong UIImageView *sself = wself;
                 if (!sself) return;
-                if (image)
+                if((options & SDWebImageSetComplementaryBGColor) && image.size.width/image.size.height != sself.frame.size.width/sself.frame.size.height)
                 {
-                    sself.image = image;
-                    [sself setNeedsLayout];
+                    sself = nil;
+                    //We only need to calculate this color if the size of the image is different than the size of frame, eg. we can see the background!
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
+                                {
+                                    if (!wself) return;
+                                    
+                                    //Calculate color!
+                                    UIColor *backgroundColor = [image calcEdgeColor];//[image calcEdgeColor]
+                                    
+                                    dispatch_async(dispatch_get_main_queue(), ^
+                                                   {
+                                                       __strong UIImageView * _strongSelf = wself;
+                                                       if(!_strongSelf) return;
+                                                       if(options & SDWebImageSetImageWithAnimation){
+                                                           [_strongSelf setImage:image withBackGroundColor:backgroundColor withTransitionAnimation:TRUE];
+                                                       }
+                                                       else{
+                                                           _strongSelf.backgroundColor = backgroundColor;
+                                                           _strongSelf.image = image;
+                                                           [_strongSelf setNeedsLayout];
+                                                       }
+                                                       if (completedBlock && finished)
+                                                       {
+                                                           completedBlock(image, error, cacheType);
+                                                       }
+                                                   });
+                                });
                 }
-                if (completedBlock && finished)
+                else
                 {
-                    completedBlock(image, error, cacheType);
+                    if(!wself) return;
+                    dispatch_main_sync_safe(^
+                    {
+                        __strong UIImageView *strongself = wself;
+                        if (!strongself) return;
+                        
+                        if(options & SDWebImageSetImageWithAnimation)
+                            [strongself setImage:image withTransitionAnimation:TRUE];
+                        else
+                            strongself.image = image;
+                        [strongself setNeedsLayout];
+                        if (completedBlock && finished)
+                        {
+                            completedBlock(image, error, cacheType);
+                        }
+                    });
                 }
-            });
+            }
+            
         }];
         objc_setAssociatedObject(self, &operationKey, operation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
+
+
 
 - (void)setAnimationImagesWithURLs:(NSArray *)arrayOfURLs
 {
