@@ -19,12 +19,40 @@
     }
     else
     {
-        [UIView transitionWithView:self
-                          duration:0.5f
-                           options:UIViewAnimationOptionTransitionCrossDissolve
-                        animations:^{
-                            self.image = inNewImage;
-                        } completion:nil];
+//        [UIView transitionWithView:self
+//                          duration:0.5f
+//                           options:UIViewAnimationOptionTransitionCrossDissolve
+//                        animations:^{
+//                            self.image = inNewImage;
+//                        } completion:nil];
+
+//        self.image = inNewImage;
+//        CATransition *transition = [CATransition animation];
+//        transition.duration = 0.5f;
+//        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+//        transition.type = kCATransitionFade;
+//        
+//        [self.layer addAnimation:transition forKey:nil];
+
+        //We are doing a different animation when self.image is nil to avoid a old image, that has not yet been rendered out, to appeare.
+        if(self.image == nil)
+        {
+            self.image = inNewImage;
+            self.alpha = 0;
+            [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDuration:0.3f];
+                self.alpha = 1;
+            [UIView commitAnimations];
+        }
+        else{
+            self.image = inNewImage;
+            CATransition *transition = [CATransition animation];
+            transition.duration = 0.3f;
+            transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+            transition.type = kCATransitionFade;
+
+            [self.layer addAnimation:transition forKey:nil];
+        }
     }
 }
 
@@ -49,7 +77,7 @@
         self.backgroundColor = bgColor;
         
         self.image = inNewImage;
-        [self setContentMode:UIViewContentModeScaleAspectFit];
+        //[self setContentMode:UIViewContentModeScaleAspectFit];
         
         CATransition *transition = [CATransition animation];
         transition.duration = 0.5f;
