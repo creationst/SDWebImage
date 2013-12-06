@@ -69,7 +69,7 @@ typedef struct RGBAPixel
     
     unsigned char *rawData = (unsigned char*) calloc(self.size.height * 1 * 4, sizeof(unsigned char));
     
-    CGContextRef bmContext = CGBitmapContextCreate(rawData, 1, self.size.height, 8, 4 * 1, cs, (CGBitmapInfo)kCGImageAlphaNoneSkipLast);
+    CGContextRef bmContext = CGBitmapContextCreate(rawData, 1, self.size.height, 8, 4 * 1, cs, kCGImageAlphaNoneSkipLast);
     CGContextDrawImage(bmContext, (CGRect){.origin.x = 0.0f, .origin.y = 0.0f, .size.width = 1, .size.height = self.size.height}, imageRep);
     CGColorSpaceRelease(cs);
     NSCountedSet* edgeColors = [[NSCountedSet alloc] initWithCapacity:self.size.height];

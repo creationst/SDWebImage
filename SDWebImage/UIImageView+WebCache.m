@@ -122,6 +122,7 @@ static char operationArrayKey;
                                                        {
                                                            completedBlock(image, error, cacheType);
                                                        }
+                                                       _strongSelf = nil;
                                                    });
                                 });
                 }

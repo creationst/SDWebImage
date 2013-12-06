@@ -50,8 +50,8 @@
             transition.duration = 0.3f;
             transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
             transition.type = kCATransitionFade;
-
-            [self.layer addAnimation:transition forKey:nil];
+            [self.layer removeAnimationForKey:@"fade"];
+            [self.layer addAnimation:transition forKey:@"fade"];
         }
     }
 }
@@ -83,8 +83,8 @@
         transition.duration = 0.5f;
         transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         transition.type = kCATransitionFade;
-        
-        [self.layer addAnimation:transition forKey:nil];
+        [self.layer removeAnimationForKey:@"fade"];
+        [self.layer addAnimation:transition forKey:@"fade"];
     }
 }
 
