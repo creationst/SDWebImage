@@ -21,5 +21,7 @@
 
 -(void)setImage:(UIImage *)inNewImage withBackGroundColor:(UIColor *)bgColor withTransitionAnimation:(BOOL)inAnimation;
 
+-(void)showWithAnimation:(BOOL)animation;
+-(void)hideWithAnimation:(BOOL)animation;
 
 @end

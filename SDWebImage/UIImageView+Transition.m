@@ -35,7 +35,7 @@
 //        [self.layer addAnimation:transition forKey:nil];
 
         //We are doing a different animation when self.image is nil to avoid a old image, that has not yet been rendered out, to appeare.
-        if(self.image == nil)
+        if(self.image == nil || self.alpha == 0)
         {
             self.image = inNewImage;
             self.alpha = 0;
@@ -85,6 +85,35 @@
         transition.type = kCATransitionFade;
         [self.layer removeAnimationForKey:@"fade"];
         [self.layer addAnimation:transition forKey:@"fade"];
+    }
+}
+
+-(void)showWithAnimation:(BOOL)animation{
+    if (self.alpha != 1) {
+        if (animation) {
+            [UIView animateWithDuration:0.5 animations:^{
+                [self setAlpha:1];
+            }];
+        }
+        else
+        {
+            [self setAlpha:1];
+        }
+    }
+    
+}
+
+-(void)hideWithAnimation:(BOOL)animation{
+    if (self.alpha != 0) {
+        if (animation) {
+            [UIView animateWithDuration:0.5 animations:^{
+                [self setAlpha:0];
+            }];
+        }
+        else
+        {
+            [self setAlpha:0];
+        }
     }
 }
 
