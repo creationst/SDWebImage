@@ -103,18 +103,19 @@ static char operationArrayKey;
                                 {
                                     if (!wself) return;
                                     
-                                    //Calculate color!
-                                    UIColor *backgroundColor = [image calcEdgeColor];//[image calcEdgeColor]
+//                                    //Calculate color!
+//                                    UIColor *backgroundColor = [image calcEdgeColor];//[image calcEdgeColor]
                                     
                                     dispatch_async(dispatch_get_main_queue(), ^
                                                    {
                                                        __strong UIImageView * _strongSelf = wself;
                                                        if(!_strongSelf) return;
                                                        if(options & SDWebImageSetImageWithAnimation){
-                                                           [_strongSelf setImage:image withBackGroundColor:backgroundColor withTransitionAnimation:TRUE];
+//                                                           [_strongSelf setImage:image withBackGroundColor:backgroundColor withTransitionAnimation:TRUE];
+                                                           [_strongSelf setImage:image withBackGroundColor:[UIColor clearColor] withTransitionAnimation:TRUE];
                                                        }
                                                        else{
-                                                           _strongSelf.backgroundColor = backgroundColor;
+//                                                           _strongSelf.backgroundColor = backgroundColor;
                                                            _strongSelf.image = image;
                                                            [_strongSelf setNeedsLayout];
                                                        }
@@ -145,6 +146,11 @@ static char operationArrayKey;
                         }
                     });
                 }
+            }
+            else
+            {
+                NSError *errorNotFound = [NSError errorWithDomain:@"Not found" code:0 userInfo:nil];
+                completedBlock(nil, errorNotFound, SDImageCacheTypeNone);
             }
             
         }];
