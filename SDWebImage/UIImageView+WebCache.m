@@ -103,13 +103,8 @@ static char operationArrayKey;
                                 {
                                     if (!wself) return;
                                     
-<<<<<<< HEAD
-                                    //Calculate color!
-                                    UIColor *backgroundColor = [UIColor blackColor] ;//[image calcEdgeColor]
-=======
 //                                    //Calculate color!
 //                                    UIColor *backgroundColor = [image calcEdgeColor];//[image calcEdgeColor]
->>>>>>> deatached
                                     
                                     dispatch_async(dispatch_get_main_queue(), ^
                                                    {
