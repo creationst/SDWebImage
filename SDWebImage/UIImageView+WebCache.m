@@ -150,7 +150,8 @@ static char operationArrayKey;
             else
             {
                 NSError *errorNotFound = [NSError errorWithDomain:@"Not found" code:0 userInfo:nil];
-                completedBlock(nil, errorNotFound, SDImageCacheTypeNone);
+                if (completedBlock)
+                    completedBlock(nil, errorNotFound, SDImageCacheTypeNone);
             }
             
         }];
