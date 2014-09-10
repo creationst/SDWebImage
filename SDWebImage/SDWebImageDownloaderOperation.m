@@ -31,6 +31,8 @@
     BOOL responseFromCached;
 }
 
+@synthesize executing, finished;
+
 - (id)initWithRequest:(NSURLRequest *)request options:(SDWebImageDownloaderOptions)options progress:(void (^)(NSUInteger, long long))progressBlock completed:(void (^)(UIImage *, NSData *, NSError *, BOOL))completedBlock cancelled:(void (^)())cancelBlock
 {
     if ((self = [super init]))
@@ -40,8 +42,8 @@
         _progressBlock = [progressBlock copy];
         _completedBlock = [completedBlock copy];
         _cancelBlock = [cancelBlock copy];
-        _executing = NO;
-        _finished = NO;
+        executing = NO;
+        finished = NO;
         _expectedSize = 0;
         responseFromCached = YES; // Initially wrong until `connection:willCacheResponse:` is called or not called
     }
@@ -133,17 +135,17 @@
     self.imageData = nil;
 }
 
-- (void)setFinished:(BOOL)finished
+- (void)setFinished:(BOOL)newFinished
 {
     [self willChangeValueForKey:@"isFinished"];
-    _finished = finished;
+    finished = newFinished;
     [self didChangeValueForKey:@"isFinished"];
 }
 
-- (void)setExecuting:(BOOL)executing
+- (void)setExecuting:(BOOL)newExecuting
 {
     [self willChangeValueForKey:@"isExecuting"];
-    _executing = executing;
+    executing = newExecuting;
     [self didChangeValueForKey:@"isExecuting"];
 }
 
