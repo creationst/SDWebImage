@@ -283,6 +283,7 @@
 		53EDFD0017625F7900698166 /* thread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thread.c; path = Vendors/libwebp/src/utils/thread.c; sourceTree = "<group>"; };
 		53FB893F14D35D1A0020B787 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		53FB894814D35E9E0020B787 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		65F65F9D1A1DF3EC00AFD803 /* SDImageCache+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SDImageCache+Private.h"; sourceTree = "<group>"; };
 		A18A6CC5172DC28500419892 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		A18A6CC6172DC28500419892 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
 		A18A6CCB172DC33A00419892 /* NSData+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GIF.h"; sourceTree = "<group>"; };
@@ -399,6 +400,7 @@
 				53922D94148C56230056699D /* UIButton+WebCache.m */,
 				53922D95148C56230056699D /* UIImageView+WebCache.h */,
 				53922D96148C56230056699D /* UIImageView+WebCache.m */,
+				65F65F9D1A1DF3EC00AFD803 /* SDImageCache+Private.h */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
