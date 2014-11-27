@@ -18,10 +18,11 @@
 + (UIImage *)sd_imageWithData:(NSData *)data
 {
     UIImage *image;
-
+    
     if ([data sd_isGIF])
     {
-        image = [UIImage sd_animatedGIFWithData:data];
+        if ([UIImage respondsToSelector:@selector(sd_animatedGIFWithData:)])
+            image = [UIImage sd_animatedGIFWithData:data];
     }
     else
     {
@@ -31,7 +32,8 @@
 #ifdef SD_WEBP
     if (!image) // TODO: detect webp signature
     {
-        image = [UIImage sd_imageWithWebPData:data];
+        if ([UIImage respondsToSelector:@selector(sd_imageWithWebPData:)])
+            image = [UIImage sd_imageWithWebPData:data];
     }
 #endif
 
