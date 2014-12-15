@@ -29,7 +29,7 @@
     }
 
 #ifdef SD_WEBP
-    if (!image) // TODO: detect webp signature
+    if (!image && [UIImage respondsToSelector:@selector(sd_imageWithWebPData:)]) // TODO: detect webp signature
     {
         image = [UIImage sd_imageWithWebPData:data];
     }
