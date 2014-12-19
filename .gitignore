@@ -1,8 +1,4 @@
 .DS_Store
-SDWebImage.xcodeproj/xcshareddata/xcschemes/SDWebImage+MKAnnotation.xcscheme
-SDWebImage.xcodeproj/xcshareddata/xcschemes/SDWebImage+WebP.xcscheme
-SDWebImage.xcodeproj/xcshareddata/xcschemes/SDWebImage.xcscheme
-SDWebImage.xcodeproj/xcshareddata/xcschemes/SDWebImageFramework.xcscheme
 
 # Xcode
 build/*
@@ -20,8 +16,4 @@ xcuserdata
 profile
 *.moved-aside
 
-SDWebImage.xcodeproj/xcshareddata/xcschemes/SDWebImage+MKAnnotation.xcscheme
-SDWebImage.xcodeproj/xcshareddata/xcschemes/SDWebImage+WebP.xcscheme
-SDWebImage.xcodeproj/xcshareddata/xcschemes/SDWebImage.xcscheme
-SDWebImage.xcodeproj/xcshareddata/xcschemes/SDWebImageFramework.xcscheme
 SDWebImage.xcodeproj/xcshareddata/
