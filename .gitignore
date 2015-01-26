@@ -1,5 +1,5 @@
 .DS_Store
-SDWebImage.xcodeproj/xcshareddata/
+
 # Xcode
 #
 build/
@@ -16,6 +16,7 @@ project.xcworkspace
 xcuserdata
 *.xccheckout
 *.moved-aside
+<<<<<<< HEAD
 DerivedData
 *.hmap
 *.ipa
@@ -29,3 +30,7 @@ DerivedData
 #
 Pods/
 Podfile.lock
+=======
+
+SDWebImage.xcodeproj/xcshareddata/
+>>>>>>> ad2afd51a1a849f8597c0a0cab5c7f2bda2efed7
