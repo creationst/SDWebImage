@@ -1046,7 +1046,7 @@
 				PRODUCT_NAME = SDWebImage;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = debugging;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1071,7 +1071,7 @@
 				PRODUCT_NAME = SDWebImage;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = debugging;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
