@@ -203,7 +203,7 @@ static char imageURLKey;
 - (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options progress:(SDWebImageDownloaderProgressBlock)progressBlock completed:(SDWebImageCompletionBlock)completedBlock {
     [self sd_cancelCurrentImageLoad];
     objc_setAssociatedObject(self, &imageURLKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
+    
     if (!(options & SDWebImageDelayPlaceholder)) {
         dispatch_main_async_safe(^{
             self.image = placeholder;
@@ -228,14 +228,7 @@ static char imageURLKey;
                 if (completedBlock && finished) {
                     completedBlock(image, error, cacheType, url);
                 }
-            }
-            else
-            {
-                NSError *errorNotFound = [NSError errorWithDomain:@"Not found" code:0 userInfo:nil];
-                if (completedBlock)
-                    completedBlock(nil, errorNotFound, SDImageCacheTypeNone);
-            }
-            
+            });
         }];
         [self sd_setImageLoadOperation:operation forKey:@"UIImageViewImageLoad"];
     } else {

@@ -53,9 +53,7 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
     /**
      * This flag is used to set the new image with a animation.
      */
-    SDWebImageSetImageWithAnimation =1 << 6
-    
-} SDWebImageOptions;
+    SDWebImageSetImageWithAnimation =1 << 6,
 
     /**
      * In iOS 4+, continue the download of the image if the app goes to background. This is achieved by asking the system for
