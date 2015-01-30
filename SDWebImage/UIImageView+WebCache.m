@@ -217,7 +217,10 @@ static char imageURLKey;
             dispatch_main_sync_safe(^{
                 if (!wself) return;
                 if (image) {
-                    wself.image = image;
+                    if(options & SDWebImageSetImageWithAnimation)
+                        [wself setImage:image withTransitionAnimation:YES];
+                    else
+                        wself.image = image;
                     [wself setNeedsLayout];
                 } else {
                     if ((options & SDWebImageDelayPlaceholder)) {
