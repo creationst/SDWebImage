@@ -210,8 +210,9 @@
         if (self.progressBlock) {
             self.progressBlock(0, expected);
         }
-
-        self.imageData = [[NSMutableData alloc] initWithCapacity:expected];
+        if (expected < NSIntegerMax) {
+            self.imageData = [[NSMutableData alloc] initWithCapacity:expected];
+        }
     }
     else {
         NSUInteger code = [((NSHTTPURLResponse *)response) statusCode];
