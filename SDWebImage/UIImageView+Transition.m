@@ -38,7 +38,7 @@
 //        transition.duration = 0.5f;
 //        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
 //        transition.type = kCATransitionFade;
-//        
+//            
 //        [self.layer addAnimation:transition forKey:nil];
 
             //We are doing a different animation when self.image is nil to avoid a old image, that has not yet been rendered out, to appeare.
