@@ -41,7 +41,7 @@
 //            
 //        [self.layer addAnimation:transition forKey:nil];
             
-            if (self.image != inNewImage) {
+//            if (self.image != inNewImage) {
                 //We are doing a different animation when self.image is nil to avoid a old image, that has not yet been rendered out, to appeare.
                 if(self.image == nil || self.alpha == 0)
                 {
@@ -61,7 +61,7 @@
                     [self.layer removeAnimationForKey:@"fade"];
                     [self.layer addAnimation:transition forKey:@"fade"];
                 }
-            }
+//            }
         }
     }
 }
