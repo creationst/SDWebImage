@@ -67,13 +67,21 @@
 }
 
 -(void)setImage:(UIImage *)inNewImage withBackGroundColor:(UIColor *)bgColor withTransitionAnimation:(BOOL)inAnimation{
-    if (!inAnimation)
-    {
-        [self setImage:inNewImage];
-        self.backgroundColor = bgColor;
+    
+    if (![[NSThread currentThread] isMainThread]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setImage:inNewImage withBackGroundColor:bgColor withTransitionAnimation:inAnimation];
+        });
     }
     else
     {
+        if (!inAnimation)
+        {
+            [self setImage:inNewImage];
+            self.backgroundColor = bgColor;
+        }
+        else
+        {
 
 //        [UIView transitionWithView:self
 //                          duration:0.5f
@@ -95,6 +103,7 @@
         transition.type = kCATransitionFade;
         [self.layer removeAnimationForKey:@"fade"];
         [self.layer addAnimation:transition forKey:@"fade"];
+    }
     }
 }
 
